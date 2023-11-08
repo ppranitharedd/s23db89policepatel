@@ -19,3 +19,15 @@ exports.tastyFood_delete = function(req, res) {
 exports.tastyFood_update_put = function(req, res) {
  res.send('NOT IMPLEMENTED: TastyFood update PUT' + req.params.id);
 };
+
+// List of all Costumes
+exports.tastyFood_list = async function(req, res) {
+    try{
+    theTastyFood = await TastyFood.find();
+    res.send(theTastyFood);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+   };

@@ -10,7 +10,7 @@ var tastyfoodRouter = require('./routes/TastyFood');
 var boardRouter=require('./routes/board');
 var chooseRouter=require('./routes/choose');
 var app = express();
-var TastyFoodRouter = require("./models/TastyFood");
+var TastyFood = require("./models/TastyFood");
 
 require('dotenv').config();
 const connectionString = 
@@ -24,6 +24,20 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once("open", function(){
 console.log("Connection to DB succeeded")});
+
+//We can seed the collection if needed on server start
+async function recreateDB(){
+  // Delete everything
+  await TastyFood.deleteMany();
+  let instance1 = new TastyFood({taste: "Sweet", texture: "Creamy", temperature: 100});
+  instance1.save().then(doc=>{
+  console.log("First object saved")}
+  ).catch(err=>{
+  console.error(err)
+  });
+ }
+ let reseed = true;
+ if (reseed) {recreateDB();}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,7 +54,7 @@ app.use('/users', usersRouter);
 app.use('/TastyFood',tastyfoodRouter);
 app.use('/board',boardRouter);
 app.use('/choose',chooseRouter);
-app.use('/models/TastyFood',TastyFoodRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

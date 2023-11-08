@@ -8,7 +8,7 @@ const tastyFoodSchema = mongoose.Schema({
 //We can seed the collection if needed on server start
 async function recreateDB(){
  // Delete everything
- await Costume.deleteMany();
+ await TastyFood.deleteMany();
  let instance1 = new TastyFood({taste: "Sweet", texture: "Creamy", temperature: 100});
  instance1.save().then(doc=>{
  console.log("First object saved")}

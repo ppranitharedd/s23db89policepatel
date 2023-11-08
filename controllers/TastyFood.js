@@ -31,3 +31,16 @@ exports.tastyFood_list = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
    };
+
+   // VIEWS
+// Handle a show all view
+exports.tastyFood_view_all_Page = async function(req, res) {
+    try{
+    theTastyFood = await TastyFood.find();
+    res.render('TastyFood', { title: 'TastyFood Search Results', results: theTastyFood });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+   };

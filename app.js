@@ -29,7 +29,7 @@ console.log("Connection to DB succeeded")});
 async function recreateDB(){
   // Delete everything
   await TastyFood.deleteMany();
-  let instance1 = new TastyFood({taste: "Sweet", texture: "Creamy", temperature: 100});
+  let instance1 = new TastyFood({taste: "Sweet", texture: "Creamy", temperature: 100},{taste: "Savory", texture: "Crispy", temperature: 180},{taste: "Spicy", texture: "Crunchy", temperature: 220});
   instance1.save().then(doc=>{
   console.log("First object saved")}
   ).catch(err=>{

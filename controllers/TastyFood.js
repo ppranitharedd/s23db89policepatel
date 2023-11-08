@@ -46,16 +46,16 @@ exports.tastyFood_view_all_Page = async function(req, res) {
    };
 
   // Handle Costume create on POST.
-exports.costume_create_post = async function(req, res) {
+exports.tastyFood_create_post = async function(req, res) {
     console.log(req.body)
-    let document = new Costume();
+    let document = new TastyFood();
     // We are looking for a body, since POST does not have query parameters.
     // Even though bodies can be in many different formats, we will be picky
     // and require that it be a json object
     // {"costume_type":"goat", "cost":12, "size":"large"}
-    document.costume_type = req.body.costume_type;
-    document.cost = req.body.cost;
-    document.size = req.body.size;
+    document.taste = req.body.taste;
+    document.texture = req.body.texture;
+    document.temperature = req.body.temperature;
     try{
     let result = await document.save();
     res.send(result);
@@ -65,4 +65,3 @@ exports.costume_create_post = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
    };
-    

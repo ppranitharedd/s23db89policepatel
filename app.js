@@ -11,7 +11,7 @@ var boardRouter=require('./routes/board');
 var chooseRouter=require('./routes/choose');
 var app = express();
 var TastyFood = require("./models/TastyFood");
-
+var resourceRouter=require('./routes/resource');
 require('dotenv').config();
 const connectionString = 
 process.env.MONGO_CON
@@ -70,7 +70,7 @@ app.use('/users', usersRouter);
 app.use('/TastyFood',tastyfoodRouter);
 app.use('/board',boardRouter);
 app.use('/choose',chooseRouter);
-
+app.use('/resource',resourceRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

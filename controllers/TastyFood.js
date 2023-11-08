@@ -1,4 +1,4 @@
-var TastyFood = require('../models/costume');
+var TastyFood = require('../models/TastyFood');
 // List of all Costumes
 exports.tastyFood_list = function(req, res) {
  res.send('NOT IMPLEMENTED: TastyFood list');

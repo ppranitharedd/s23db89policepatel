@@ -25,19 +25,35 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once("open", function(){
 console.log("Connection to DB succeeded")});
 
-//We can seed the collection if needed on server start
 async function recreateDB(){
   // Delete everything
   await TastyFood.deleteMany();
-  let instance1 = new TastyFood({taste: "Sweet", texture: "Creamy", temperature: 100},{taste: "Savory", texture: "Crispy", temperature: 180},{taste: "Spicy", texture: "Crunchy", temperature: 220});
-  instance1.save().then(doc=>{
-  console.log("First object saved")}
-  ).catch(err=>{
-  console.error(err)
-  });
+  let instance1 = new 
+   TastyFood({taste: "Sweet", texture: "Creamy", temperature: 100});
+  await instance1.save();
+  //instance1.save( function(err,doc) {
+  //if(err) return console.error(err);
+  console.log("First object saved")
+  //});
+ 
+  let instance2 = new 
+  TastyFood({taste: "Savory", texture: "Crispy", temperature: 180});
+  await instance2.save();
+  //instance1.save( function(err,doc) {
+  //if(err) return console.error(err);
+  console.log("Second object saved")
+  //});
+ 
+  let instance3 = new 
+  TastyFood({taste: "Spicy", texture: "Crunchy", temperature: 220});
+  await instance3.save();
+  //instance1.save( function(err,doc) {
+  //if(err) return console.error(err);
+  console.log("Third object saved")
+  //});
  }
  let reseed = true;
- if (reseed) {recreateDB();}
+ if (reseed) { recreateDB();}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

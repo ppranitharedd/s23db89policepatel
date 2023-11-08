@@ -1,8 +1,18 @@
 const mongoose = require("mongoose")
 const tastyFoodSchema = mongoose.Schema({
-    taste: String,
-    texture: String,
-    temperature: Number
+    taste:{
+       type:  String,
+      required :true
+    },
+     texture:{
+        type: String,
+    required:true
+    },
+
+    temperature: {
+        type:Number,
+        required:true
+    },
 })
 
 //We can seed the collection if needed on server start

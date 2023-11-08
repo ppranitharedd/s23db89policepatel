@@ -10,6 +10,20 @@ var tastyfoodRouter = require('./routes/TastyFood');
 var boardRouter=require('./routes/board');
 var chooseRouter=require('./routes/choose');
 var app = express();
+var TastyFood = require("./models/TastyFood");
+
+require('dotenv').config();
+const connectionString = 
+process.env.MONGO_CON
+mongoose = require('mongoose');
+mongoose.connect(connectionString);
+
+//Get the default connection
+var db = mongoose.connection;
+//Bind connection to error event 
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once("open", function(){
+console.log("Connection to DB succeeded")});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -10,7 +10,7 @@ var tastyfoodRouter = require('./routes/TastyFood');
 var boardRouter=require('./routes/board');
 var chooseRouter=require('./routes/choose');
 var app = express();
-var tastyFoodRouter = require("./models/TastyFood");
+var TastyFoodRouter = require("./models/TastyFood");
 
 require('dotenv').config();
 const connectionString = 
@@ -40,7 +40,7 @@ app.use('/users', usersRouter);
 app.use('/TastyFood',tastyfoodRouter);
 app.use('/board',boardRouter);
 app.use('/choose',chooseRouter);
-app.use('/models/TastyFood',tastyFoodRouter);
+app.use('/models/TastyFood',TastyFoodRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -17,4 +17,9 @@ router.put('/TastyFood/:id', tastyFood_controller.tastyFood_update_put);
 router.get('/TastyFood/:id',tastyFood_controller.tastyFood_detail);
 // GET request for list of all Costume items.
 router.get('/TastyFood', tastyFood_controller.tastyFood_list);
+ 
+
+// GET request for one costume.
+router.get('/TastyFood/:id',  tastyFood_controller.tastyFood_detail);
+
 module.exports = router;

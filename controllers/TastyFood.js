@@ -65,3 +65,44 @@ exports.tastyFood_create_post = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
    };
+
+   
+exports.tastyFood_detail = async function(req, res) {
+ console.log("detail" + req.params.id)
+ try {
+ result = await TastyFood.findById( req.params.id)
+ res.send(result)
+ } catch (error) {
+ res.status(500)
+ res.send(`{"error": document for id ${req.params.id} not found`);
+ }
+};
+
+// Handle Costume update form on PUT.
+exports.tastyFood_update_put = async function(req, res) {
+ console.log(`update on id ${req.params.id} with body
+${JSON.stringify(req.body)}`)
+ try {
+ let toUpdate = await TastyFood.findById( req.params.id)
+ // Do updates of properties
+ if(req.body.taste)
+ toUpdate.taste = req.body.taste;
+ if(req.body.texture) toUpdate.texture = req.body.texture;
+ if(req.body.temperature) toUpdate.size = req.body.temperature;
+ // Update sale or same based on checkboxsale
+ if (req.body.checkboxsale) {
+    toUpdate.sale = true;
+    toUpdate.same = false;
+  } else {
+    toUpdate.sale = false;
+    toUpdate.same = true;
+  }
+ let result = await toUpdate.save();
+ console.log("Sucess " + result)
+ res.send(result)
+ } catch (err) {
+ res.status(500)
+ res.send(`{"error": ${err}: Update for id ${req.params.id}
+failed`);
+ }
+};

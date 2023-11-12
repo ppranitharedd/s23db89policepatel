@@ -13,4 +13,7 @@ router.get('/', function(req, res, next) {
   res.render('TastyFood', { title: 'Search Results Tasty Foods' });
 });
 
+/* GET detail Tasyfood page */
+router.get('/detail', tastyFood_controlers.tastyFood_view_one_Page);
+
 module.exports = router;

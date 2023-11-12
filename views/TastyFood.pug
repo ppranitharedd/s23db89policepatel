@@ -2,6 +2,8 @@ extends layout
 
 block content
   h1= title
+ 
+
   - var tastyFoods = [{taste: "Sweet", texture: "Creamy", temperature: 100},{taste: "Savory", texture: "Crispy", temperature: 180},{taste: "Spicy", texture: "Crunchy", temperature: 220}]
   div(class="container-fluid")
     div(class="row")
@@ -11,3 +13,26 @@ block content
         function buy(a) {
           alert(`You enjoyed the ${a+1} food!`)
         }
+
+
+- let tastyFoodid = toShow._id
+- let tastyFoodtaste = toShow.taste
+- let tastyFoodtexture = toShow.texture
+- let tastyFoodtemperature = toShow.temperature
+div
+div.row
+div(class='tastyFoodAttr mr-3') TastyFood ID is:
+div #{tastyFoodid}
+div.row
+div(class='tastyFoodAttr mr-3') TastyFood Taste is:
+div #{tastyFoodtaste}
+div.row
+div(class='tastyFoodAttr mr-3') TastyFood Texture is:
+div #{tastyFoodtexture}
+div.row
+div(class='tastyFoodAttr mr-3') TastyFood Temperature is:
+div #{tastyFoodtemperature}
+.tastyFoodAttr {
+background-color: rgb(211, 241, 16);
+width: 120px;
+}

@@ -16,4 +16,7 @@ router.get('/', function(req, res, next) {
 /* GET detail Tasyfood page */
 router.get('/detail', tastyFood_controlers.tastyFood_view_one_Page);
 
+/* GET create costume page */
+router.get('/create', tastyFood_controlers.tastyFood_create_Page);
+
 module.exports = router;

@@ -8,18 +8,24 @@ block content
   - let tastyFoodtemperature = toShow.temperature
   div
     div.row
-      div(class='tastyFoodAttr mr-3') tastyFood ID is:
+      div(class='tastyFoodAttr mr-4') TastyFood ID is:
         div #{tastyFoodid}
+        br
     div.row
-      div(class='tastyFoodAttr mr-3') tastyFood Taste is:
+      div(class='tastyFoodAttr mr-4') TastyFood Taste is:
         div #{tastyFoodtaste}
+        br
     div.row
-      div(class='tastyFoodAttr mr-3') tastyFood Texture is:
+      div(class='tastyFoodAttr mr-4') TastyFood Texture is:
         div #{tastyFoodtexture}
+        br
     div.row
-      div(class='tastyFoodAttr mr-3') tastyFood Temperature is:
+      div(class='tastyFoodAttr mr-4') TastyFood Temperature is:
         div #{tastyFoodtemperature}
+        br
 
-  .tastyFoodAttr
-  background-color: rgb(211, 241, 16)
-  width: 300px
+  style.
+    .tastyFoodAttr {
+      background-color: rgb(211, 241, 16);
+      width: 300px;
+    }

@@ -19,4 +19,8 @@ router.get('/detail', tastyFood_controlers.tastyFood_view_one_Page);
 /* GET create costume page */
 router.get('/create', tastyFood_controlers.tastyFood_create_Page);
 
+/* GET create update page */
+router.get('/update', tastyFood_controlers.tastyFood_update_Page);
+
+
 module.exports = router;

@@ -106,3 +106,17 @@ ${JSON.stringify(req.body)}`)
 failed`);
  }
 };
+
+// Handle Costume delete on DELETE.
+exports.tastyFood_delete = async function(req, res) {
+  console.log("delete " + req.params.id)
+  try {
+  result = await TastyFood.findByIdAndDelete( req.params.id)
+  console.log("Removed " + result)
+  res.send(result)
+  } catch (err) {
+  res.status(500)
+  res.send(`{"error": Error deleting ${err}}`);
+  }
+  };
+  

@@ -21,6 +21,8 @@ router.get('/create', tastyFood_controlers.tastyFood_create_Page);
 
 /* GET create update page */
 router.get('/update', tastyFood_controlers.tastyFood_update_Page);
+/* GET delete costume page */
+router.get('/delete', tastyFood_controlers.tastyFood_delete_Page);
 
 
 module.exports = router;

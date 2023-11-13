@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  h1= title
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let tastyFoodid = toShow._id
+    - let taste = toShow.taste
+    - let texture = toShow.texture
+    - let temperature = toShow.temperature
+    - let actionid = "/resource/tastyFood/" + tastyFoodid
+
+    script.
+      let actionid = "#{actionid}"
+
+    div
+      div.row
+        div(class='tastyFoodAttr mr-3') TastyFood ID is:
+        div #{tastyFoodid}
+
+      div.row
+        div(class='tastyFoodAttr mr-3') TastyFood taste is:
+        div #{taste}
+
+      div.row
+        div(class='tastyFoodAttr mr-3') TastyFood texture is:
+        div #{texture}
+
+      div.row
+        div(class='tastyFoodAttr mr-3') TastyFood temperature is:
+        div #{temperature}
+
+      button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+      button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+
+    script.
+      function cancel() {
+        // Go back to the home page for the costume collection
+        window.location.href='/tastyFood'
+      }
+
+      function deleteOnid() {
+        console.log("starting delete")
+        // delete first
+        fetch(actionid, {
+          method: 'DELETE' // Don't need a body for the delete
+        }).then((resp) => {
+          return resp.json(); // or resp.text() or whatever the server sends
+        }).then((body) => {
+          alert("Delete succeeded")
+          window.location.href='/tastyFood'
+          // TODO handle body
+        }).catch((error) => {
+          // TODO handle error
+          alert("Delete failed " + error)
+        });
+      }

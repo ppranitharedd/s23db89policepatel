@@ -2,12 +2,21 @@ extends layout
 
 block content
   h1= title
+  - let items = results;
   - var tastyFoods = [{taste: "Sweet", texture: "Creamy", temperature: 100},{taste: "Savory", texture: "Crispy", temperature: 180},{taste: "Spicy", texture: "Crunchy", temperature: 220}]
   div(class="container-fluid")
-    div(class="row")
-      each food, index in tastyFoods
-        div(class="col-sm-2" onclick=`buy(${index})`) #{food.taste}, #{food.texture}, #{food.temperature}°F
-      script.
-        function buy(a) {
-          alert(`You enjoyed the ${a+1} food!`)
-        }
+    div(class="row m-1")
+      each item in items
+        - let destination = `dispatch("/TastyFood/update?id=${item._id}")`
+        div(class="row-sm-2 m-1") 
+          | Item #{item.taste}(#{item.texture}) is #{item.temperature}
+          button.btn(class="btn-primary ml-1", onclick=destination) Update
+
+    script.
+      function buy(a) {
+        alert(`You enjoyed the ${a + 1} food!`);
+      }
+
+      function dispatch(path) {
+        window.location.href = path;
+      }

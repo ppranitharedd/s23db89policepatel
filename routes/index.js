@@ -67,5 +67,7 @@ router.get('/login', function(req, res) {
   res.status(200).send("pong!");
  });
  module.exports = router;
-
+ router.post('/login', passport.authenticate('local'), function(req, res) {
+  res.redirect('/');
+ });
  

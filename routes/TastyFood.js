@@ -14,10 +14,10 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET detail Tasyfood page */
-router.get('/detail', tastyFood_controlers.tastyFood_view_one_Page);
+router.get('/detail',secured, tastyFood_controlers.tastyFood_view_one_Page);
 
 /* GET create costume page */
-router.get('/create', tastyFood_controlers.tastyFood_create_Page);
+router.get('/create',secured, tastyFood_controlers.tastyFood_create_Page);
 const secured = (req, res, next) => {
   if (req.user){
   return next();
@@ -28,7 +28,7 @@ const secured = (req, res, next) => {
 router.get('/update',secured, tastyFood_controlers.tastyFood_update_Page);
 
 /* GET delete costume page */
-router.get('/delete', tastyFood_controlers.tastyFood_delete_Page);
+router.get('/delete', secured,tastyFood_controlers.tastyFood_delete_Page);
 
 
 module.exports = router;

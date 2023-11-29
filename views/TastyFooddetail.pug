@@ -3,23 +3,23 @@ extends layout
 block content
   h1= title
   - let tastyFoodid = toShow._id
-  - let tastyFoodtaste = toShow.taste
-  - let tastyFoodtexture = toShow.texture
-  - let tastyFoodtemperature = toShow.temperature
+  - let taste = toShow.taste
+  - let texture = toShow.texture
+  - let temperature = toShow.temperature
   div
     div.row
-      div(class='tastyFoodAttr mr-4') TastyFood ID is:
-        div #{tastyFoodid}
-        br
+      div(class='tastyFoodAttr mr-3') TastyFood ID is:
+      div #{tastyFoodid}
+        
     div.row
-      div(class='tastyFoodAttr mr-4') TastyFood Taste is:
-        div #{tastyFoodtaste}
-        br
+      div(class='tastyFoodAttr mr-3') TastyFood Taste is:
+      div #{taste}
+        
     div.row
-      div(class='tastyFoodAttr mr-4') TastyFood Texture is:
-        div #{tastyFoodtexture}
-        br
+      div(class='tastyFoodAttr mr-3') TastyFood Texture is:
+      div #{texture}
+        
     div.row
-      div(class='tastyFoodAttr mr-4') TastyFood Temperature is:
-        div #{tastyFoodtemperature}
-        br
+      div(class='tastyFoodAttr mr-3') TastyFood Temperature is:
+      div #{temperature}
+        

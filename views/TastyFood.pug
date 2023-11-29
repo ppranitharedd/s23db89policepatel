@@ -12,7 +12,8 @@ block content
         div(class="row-sm-2 m-1") 
           | Item #{item.taste}(#{item.texture}) is #{item.temperature}
           button.btn(class="btn-primary ml-1", onclick=destination) Update
-
+          a(class="btn btn-danger" href=`/TastyFood/delete?id=${item._id}`) Delete 
+          a(class="btn btn-dark" href=`/TastyFood/detail?id=${item._id}`) Details
     script.
       function buy(a) {
         alert(`You enjoyed the ${a + 1} food!`);
